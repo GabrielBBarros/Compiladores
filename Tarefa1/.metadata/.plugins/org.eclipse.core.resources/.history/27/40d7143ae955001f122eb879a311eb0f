@@ -1,0 +1,19 @@
+package Model;
+
+public class modelo {
+	public int numero;
+	public String operacao;
+	
+	public modelo() {
+		
+	}
+	
+	public modelo(int numero, String operacao) {
+		super();
+		this.numero = numero;
+		this.operacao = operacao;
+	}
+	
+	
+	
+}

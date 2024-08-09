@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\gabri\Desktop\Compiladores\Tarefa1\.metadata\.plugins\org.eclipse.jdt.core
+2367783050.index
+1865797976.index
+164425334.index

@@ -1,0 +1,11 @@
+
+„	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(á–Ì“H!RMINORZ
+CODE_SMELL
+|	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(»‹ª–ýÿÿÿÿH"RMINORZ
+CODE_SMELL
+…
+java:S1104"TMake operacao a static final constant or non-public and provide accessors if needed.(‚Ëým8ÁÁñ¤“2H#RMINORZ
+CODE_SMELL
+‰
+java:S1104"RMake numero a static final constant or non-public and provide accessors if needed.(§Äïàûÿÿÿÿ8ÁÁñ¤“2H$RMINORZ
+CODE_SMELL

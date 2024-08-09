@@ -1,0 +1,12 @@
+package Model;
+
+public enum Tipo {
+	NUMERO,
+	MAIS,
+	MENOS,
+	MULTIPLICACAO,
+	DIVISÃO,
+	ABRE_PARENTESES,
+	FECHA_PARENTESES,
+	EOF
+}

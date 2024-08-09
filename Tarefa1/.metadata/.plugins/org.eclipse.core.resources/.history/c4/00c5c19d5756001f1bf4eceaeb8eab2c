@@ -1,0 +1,51 @@
+package Controller;
+
+import Model.Analisador_Lexico;
+import Model.Token;
+import Model.Tipo;
+import View.Menu;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Controlador {
+    private Menu view;
+    private Analisador_Lexico modelo;
+
+    public Controlador(Menu view) {
+        this.view = view;
+        this.modelo = new Analisador_Lexico("");
+        initListeners();
+    }
+
+    private void initListeners() {
+        view.getLexicalMenuItem().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.showLexicalAnalyzer();
+            }
+        });
+
+        view.getAnalyzeButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                processInput();
+            }
+        });
+    }
+
+    private void processInput() {
+        // Obtém a entrada do usuário da visão
+        String input = view.getInputField().getText();
+        modelo.setInput(input);
+
+        // Limpa a tabela antes de adicionar novos resultados
+        view.clearTable();
+
+        // Processa a entrada e adiciona os tokens à tabela
+        Token token;
+        while ((token = modelo.proxT()).getType() != Tipo.EOF) {
+            view.addTokenToTable(token.getValue(), token.getType().toString()); // Convertendo Tipo para String
+        }
+    }
+}

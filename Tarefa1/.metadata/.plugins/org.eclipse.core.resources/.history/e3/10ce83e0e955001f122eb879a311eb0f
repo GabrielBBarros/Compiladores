@@ -1,0 +1,35 @@
+package Model;
+
+public class modelo {
+	public int numero;
+	public String operacao;
+	
+	public modelo() {
+		
+	}
+	
+	public modelo(int numero, String operacao) {
+		super();
+		this.numero = numero;
+		this.operacao = operacao;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public String getOperacao() {
+		return operacao;
+	}
+
+	public void setOperacao(String operacao) {
+		this.operacao = operacao;
+	}
+	
+	
+	
+}

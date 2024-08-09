@@ -1,0 +1,116 @@
+package View;
+
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+public class Menu extends JDialog {
+
+    private final JPanel contentPanel = new JPanel();
+    private JPanel cardPanel;
+    private CardLayout cardLayout;
+
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+        try {
+            Menu dialog = new Menu();
+            dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+            dialog.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Create the dialog.
+     */
+    public Menu() {
+        setBounds(100, 100, 881, 598);
+        getContentPane().setLayout(new BorderLayout());
+
+        // CardLayout para alternar entre a tela de boas-vindas e a do analisador léxico
+        cardLayout = new CardLayout();
+        cardPanel = new JPanel(cardLayout);
+        
+        // Adiciona o cardPanel ao centro do BorderLayout
+        getContentPane().add(cardPanel, BorderLayout.CENTER);
+
+        // Tela de boas-vindas
+        JPanel welcomePanel = new JPanel(new FlowLayout());
+        welcomePanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+        JLabel welcomeLabel = new JLabel("Bem-vindo ao Analisador Léxico!");
+        welcomePanel.add(welcomeLabel);
+
+        // Tela do analisador léxico
+        JPanel lexicalAnalyzerPanel = new JPanel(new BorderLayout());
+        lexicalAnalyzerPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+        // Campo de entrada de texto
+        JPanel inputPanel = new JPanel(new FlowLayout());
+        JLabel inputLabel = new JLabel("Insira a expressão:");
+        JTextField inputField = new JTextField(20);
+        JButton analyzeButton = new JButton("Analisar");
+        inputPanel.add(inputLabel);
+        inputPanel.add(inputField);
+        inputPanel.add(analyzeButton);
+
+        // Tabela para exibir os tokens
+        DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"Token", "Tipo"}, 0);
+        JTable tokenTable = new JTable(tableModel);
+        JScrollPane tableScrollPane = new JScrollPane(tokenTable);
+
+        // Adiciona o painel de entrada e a tabela ao painel do analisador léxico
+        lexicalAnalyzerPanel.add(inputPanel, BorderLayout.NORTH);
+        lexicalAnalyzerPanel.add(tableScrollPane, BorderLayout.CENTER);
+
+        // Adiciona os painéis ao cardPanel
+        cardPanel.add(welcomePanel, "Welcome");
+        cardPanel.add(lexicalAnalyzerPanel, "LexicalAnalyzer");
+
+        // Cria a barra de menu
+        JMenuBar menuBar = new JMenuBar();
+        setJMenuBar(menuBar);
+
+        JMenu mnNewMenu = new JMenu("Analisador Lexico");
+        menuBar.add(mnNewMenu);
+
+        // Adiciona ação ao menu
+        mnNewMenu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Altera para o painel do analisador léxico
+                cardLayout.show(cardPanel, "LexicalAnalyzer");
+            }
+        });
+
+        // Ação do botão "Analisar" (para exemplo, sem implementação completa do analisador)
+        analyzeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Limpa a tabela antes de adicionar novos resultados
+                tableModel.setRowCount(0);
+                
+                // Exemplo de adição de dados à tabela (substitua isso pela lógica real)
+                String input = inputField.getText();
+                tableModel.addRow(new Object[]{input, "NUMERO"});
+                tableModel.addRow(new Object[]{"+", "OPERADOR"});
+            }
+        });
+    }
+}

@@ -1,0 +1,87 @@
+package View;
+
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.border.EmptyBorder;
+
+public class Menu extends JDialog {
+
+    private final JPanel contentPanel = new JPanel();
+    private JPanel cardPanel;
+    private CardLayout cardLayout;
+
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+        try {
+            Menu dialog = new Menu();
+            dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+            dialog.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Create the dialog.
+     */
+    public Menu() {
+        setBounds(100, 100, 881, 598);
+        getContentPane().setLayout(new BorderLayout());
+
+        // Painel com CardLayout para alternar entre a tela de boas-vindas e o analisador léxico
+        cardLayout = new CardLayout();
+        cardPanel = new JPanel(cardLayout);
+        
+        // Adiciona o cardPanel ao centro do BorderLayout
+        getContentPane().add(cardPanel, BorderLayout.CENTER);
+
+        // Tela de boas-vindas
+        JPanel welcomePanel = new JPanel(new FlowLayout());
+        welcomePanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+        welcomePanel.add(new JTextArea("Bem-vindo ao Analisador Léxico!", 5, 30));
+        
+        // Tela do analisador léxico
+        JPanel lexicalAnalyzerPanel = new JPanel(new BorderLayout());
+        lexicalAnalyzerPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+        JTextArea inputArea = new JTextArea(5, 30);
+        JButton analyzeButton = new JButton("Analisar");
+        JTextArea outputArea = new JTextArea(10, 30);
+        outputArea.setEditable(false);
+
+        lexicalAnalyzerPanel.add(new JTextArea("Insira a expressão para análise:", 1, 30), BorderLayout.NORTH);
+        lexicalAnalyzerPanel.add(inputArea, BorderLayout.CENTER);
+        lexicalAnalyzerPanel.add(analyzeButton, BorderLayout.SOUTH);
+
+        // Adiciona os painéis ao cardPanel
+        cardPanel.add(welcomePanel, "Welcome");
+        cardPanel.add(lexicalAnalyzerPanel, "LexicalAnalyzer");
+
+        // Cria a barra de menu
+        JMenuBar menuBar = new JMenuBar();
+        setJMenuBar(menuBar);
+
+        JMenu mnNewMenu = new JMenu("Analisador Lexico");
+        menuBar.add(mnNewMenu);
+
+        // Adiciona ação ao menu
+        mnNewMenu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Altera para o painel do analisador léxico
+                cardLayout.show(cardPanel, "LexicalAnalyzer");
+            }
+        });
+    }
+}

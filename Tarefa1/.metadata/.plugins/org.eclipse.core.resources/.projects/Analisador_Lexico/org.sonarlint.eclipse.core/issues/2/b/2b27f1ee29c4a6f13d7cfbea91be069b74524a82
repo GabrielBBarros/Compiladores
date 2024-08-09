@@ -1,0 +1,15 @@
+
+g
+java:S1128"4Remove this unused import 'javax.swing.JOptionPane'.(÷‰Îé8€Æ½“2HñRMINORZ
+CODE_SMELL
+w
+java:S1854w"?Remove this useless assignment to local variable "controlador".(Ú•¯Æùÿÿÿÿ8³É½“2HâRMAJORZ
+CODE_SMELL
+h
+java:S1481w"0Remove this unused "controlador" local variable.(Ú•¯Æùÿÿÿÿ8³É½“2HãRMINORZ
+CODE_SMELL
+„
+java:S3252#"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(Õû»öşÿÿÿÿ8³É½“2HàRCRITICALZ
+CODE_SMELL
+…	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ìºéÚHßRMINORZ
+CODE_SMELL

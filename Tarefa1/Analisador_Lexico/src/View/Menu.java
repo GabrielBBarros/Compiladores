@@ -6,7 +6,7 @@ import javax.swing.JTextField;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import Controller.Controlador;
+import Controller.Controller;
 
 import javax.swing.JScrollPane;
 import javax.swing.JPanel;
@@ -30,7 +30,7 @@ public class Menu extends JFrame {
     private CardLayout cardLayout;
 
     public Menu() {
-        setTitle("Analisador Léxico");
+        setTitle("Analisador Lï¿½xico");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -42,15 +42,15 @@ public class Menu extends JFrame {
         // Tela de boas-vindas
         JPanel welcomePanel = new JPanel(new FlowLayout());
         welcomePanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        welcomePanel.add(new JLabel("Bem-vindo ao Analisador Léxico!"));
+        welcomePanel.add(new JLabel("Bem-vindo ao Analisador Lï¿½xico!"));
 
-        // Tela do analisador léxico
+        // Tela do analisador lï¿½xico
         JPanel lexicalAnalyzerPanel = new JPanel(new BorderLayout());
         lexicalAnalyzerPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
         // Campo de entrada de texto
         JPanel inputPanel = new JPanel(new FlowLayout());
-        JLabel inputLabel = new JLabel("Insira a expressão:");
+        JLabel inputLabel = new JLabel("Insira a expressï¿½o:");
         inputField = new JTextField(20);
         analyzeButton = new JButton("Analisar");
         inputPanel.add(inputLabel);
@@ -62,11 +62,11 @@ public class Menu extends JFrame {
         tokenTable = new JTable(tableModel);
         JScrollPane tableScrollPane = new JScrollPane(tokenTable);
 
-        // Adiciona o painel de entrada e a tabela ao painel do analisador léxico
+        // Adiciona o painel de entrada e a tabela ao painel do analisador lï¿½xico
         lexicalAnalyzerPanel.add(inputPanel, BorderLayout.NORTH);
         lexicalAnalyzerPanel.add(tableScrollPane, BorderLayout.CENTER);
 
-        // Adiciona os painéis ao cardPanel
+        // Adiciona os painï¿½is ao cardPanel
         cardPanel.add(welcomePanel, "Welcome");
         cardPanel.add(lexicalAnalyzerPanel, "LexicalAnalyzer");
 
@@ -77,10 +77,10 @@ public class Menu extends JFrame {
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
 
-        JMenu optionsMenu = new JMenu("Opções");
+        JMenu optionsMenu = new JMenu("Opï¿½ï¿½es");
         menuBar.add(optionsMenu);
 
-        lexicalMenuItem = new JMenuItem("Analisador Léxico");
+        lexicalMenuItem = new JMenuItem("Analisador Lï¿½xico");
         optionsMenu.add(lexicalMenuItem);
 
         cardLayout.show(cardPanel, "Welcome");
@@ -116,6 +116,6 @@ public class Menu extends JFrame {
         Menu menu = new Menu();
         menu.setVisible(true);
 
-        Controlador controlador = new Controlador(menu);
+        Controller Controller = new Controller(menu);
     }
 }

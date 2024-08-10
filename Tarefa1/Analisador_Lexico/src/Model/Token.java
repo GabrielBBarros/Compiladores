@@ -1,20 +1,20 @@
 package Model;
 
 public class Token {
-	public Tipo type;
-	public String valor;
+	public Type type;
+	public String value;
 	
 	
 	public Token() {
 		
 	}
 	
-	public Token(Tipo type, String valor) {
+	public Token(Tipo type, String value) {
 		this.type = type;
-		this.valor = valor;
+		this.value = value;
 	}
 
-	public Tipo getType() {
+	public Type getType() {
 		return type;
 	}
 
@@ -22,17 +22,17 @@ public class Token {
 		this.type = type;
 	}
 
-	public String getValor() {
-		return valor;
+	public String getValue() {
+		return value;
 	}
 
-	public void setValor(String valor) {
-		this.valor = valor;
+	public void setValue(String value) {
+		this.value = value;
 	}
 
 	@Override
 	public String toString() {
-		return "Token [tipo = " + type + "| valor = " + valor + "]";
+		return "Token [tipo = " + type + "| valor = " + value + "]";
 	}
 	
 	

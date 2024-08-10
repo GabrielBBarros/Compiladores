@@ -5,11 +5,11 @@ public class main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String input = "3 + 5 * (10-4) / 2.5";
-		Analisador_Lexico lexico = new Analisador_Lexico(input);
-		Token token = lexico.proxT();
-		while(token.getType() != Tipo.EOF) {
+		LexicalAnalyzer lexical = new LexicalAnalyzer(input);
+		Token token = lexical.proxT();
+		while(token.getType() != Type.EOF) {
 			System.out.println(token);
-			token = lexico.proxT();
+			token = lexical.proxT();
 			
 		}
 

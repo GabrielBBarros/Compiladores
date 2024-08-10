@@ -1,21 +1,21 @@
 package Controller;
 
-import Model.Analisador_Lexico;
+import Model.LexicalAnalyzer;
 import Model.Token;
-import Model.Tipo;
+import Model.Type;
 import View.Menu;
 
 import javax.swing.SwingUtilities;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Controlador {
+public class Controller {
     private Menu view;
-    private Analisador_Lexico modelo;
+    private LexicalAnalyzer model;
 
-    public Controlador(Menu view) {
+    public Controller(Menu view) {
         this.view = view;
-        this.modelo = new Analisador_Lexico("");
+        this.model = new LexicalAnalyzer("");
         initListeners();
     }
 
@@ -36,17 +36,17 @@ public class Controlador {
     }
 
     private void processInput() {
-        // Obtém a entrada do usuário da visão
+        // Obtï¿½m a entrada do usuï¿½rio da visï¿½o
         String input = view.getInputField().getText();
-        modelo.setInput(input);
+        model.setInput(input);
 
         // Atualiza a tabela na thread de eventos da GUI
         SwingUtilities.invokeLater(() -> {
             view.clearTable();
 
             Token token;
-            while ((token = modelo.proxT()).getType() != Tipo.EOF) {
-                view.addTokenToTable(token.getValor(), token.getType().toString());
+            while ((token = model.proxT()).getType() != Type.EOF) {
+                view.addTokenToTable(token.getValue(), token.getType().toString());
             }
         });
     }
